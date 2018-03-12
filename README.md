@@ -2,19 +2,40 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Game Rules](#game-rules)
+* [Technical](#technical)
+* [Credits](#credits)
+* [Tools Used](#tools-used)
 
-## Instructions
+## Game Rules
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* There are eight pairs of cards on the game board.
+* Once you click on a card, it will flip & show you its icon.
+* When you click on another card & after that card flips:
+	* In case this card icon matches the one that was flipped earlier then both cards will turn blue.
+		![Correct match](./img/_correct_move.png)
+	* In case both cards don't match then both cards will be flipped on their back again.
+		![Wrong match](./img/_wrong_move.png)
+* Every card you flip will be considered as a move & will be incremented in the counter you see above the game board.
+	* After 17 moves you will loose one star, after 33, you'll loose two stars.
+* After you successfully manage to match all pairs, a success window will open showing how many moves you've done & how long have you spent.
 
-To get started, open `js/app.js` and start building out the app's functionality
+	![Completed Game](./img/_complete.png)
+	![Success Message](./img/_success.png)
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+## Technical
 
-## Contributing
+* This project includes the following assets:
+	* **index.html** This is where the game html structure is located.
+		* You can access the memory game from: [https://alia-adel.github.io/fend-project-memory-game/](https://alia-adel.github.io/fend-project-memory-game/)
+	* **main.css** This is where the game board styling is located.
+	* **app.js** This is where all the board actions reside.
+* To follow the game workflow, please check `app.js`.
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## Credits
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+* For shuffling the cards **shuffle** javaScript function was used from http://stackoverflow.com/a/2450976
+
+## Tools Used
+
+* [Fontawesome](http://fontawesome.io/icons/) was used to display game card's icons.
