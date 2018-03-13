@@ -1,13 +1,41 @@
+// Get deck
+const deck = document.querySelector('.deck');
 // Get list of cards
-const cards = document.querySelectorAll('.card');
-// Create list of shuffled card symbols
-const cardSymbols = shuffle(['js-square', 'html5', 'css3-alt',
+const cards = [].slice.call(deck.children);
+// Create list of card symbols
+const cardSymbols = ['js-square', 'html5', 'css3-alt',
     'python', 'react', 'angular', 'sass', 'less',
     'js-square', 'html5', 'css3-alt',
-    'python', 'react', 'angular', 'sass', 'less']);
+    'python', 'react', 'angular', 'sass', 'less'];
 
-// Last opened card's symbol
-var lastOpenedSymbol;
+// List of opened cards
+const openedCards = [];
+
+function checkMatch(event) {
+    if (event.propertyName.includes('transform')) {
+        const length = openedCards.length;
+        if (length >= 2 && length % 2 == 0) {
+            const last = openedCards[length - 1];
+            const preLast = openedCards[length - 2];
+            if (last.firstElementChild.classList.toString() ===
+                preLast.firstElementChild.classList.toString()) {
+                matchCard(last);
+                matchCard(preLast);
+            } else {
+                openedCards.pop();
+                openedCards.pop();
+                setTimeout(() => {
+                    closeCard(last)
+                    closeCard(preLast)
+                }, 300);
+            }
+
+            if (openedCards.length === cardSymbols.length) {
+                // TODO: Game won! Show modal and results. Offer replay.
+            }
+        }
+    }
+}
 
 // Add symbols to cards
 cards.forEach((card, index) => {
@@ -40,7 +68,34 @@ function shuffle(array) {
     return array;
 }
 
+// Function to add 'open' & 'show' classes to card
+function openCard(event) {
+    var target = event.target;
+    const parent = target.parentElement;
+    if (parent.classList.contains('card')) {
+        target = parent;
+    }
 
+    if (!openedCards.includes(target)) {
+        target.classList.add('open', 'show');
+        openedCards.push(target);
+    }
+}
+
+// Function to removing 'open' & 'show' classes to card
+function closeCard(card) {
+    card.classList.remove('open', 'show')
+}
+
+// Function to add 'match' class to card
+function matchCard(card) {
+    card.classList.add('match')
+}
+
+// Click event listener attached to cards
+deck.addEventListener('click', openCard, true);
+
+cards.forEach(card => card.addEventListener('transitionend', checkMatch));
 
 /*
 * set up the event listener for a card. If a card is clicked:
