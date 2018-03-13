@@ -82,6 +82,14 @@ h1 {
 }
 
 /*
+ * Stle of card symbols
+ */
+.fab {
+    font-size: 1.5em;
+}
+
+
+/*
  * Styles for the Score Panel
  */
 
