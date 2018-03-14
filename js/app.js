@@ -1,7 +1,7 @@
 /* ----------- Variable declarations ----------- */
 
 const stars = document.querySelectorAll('.star');
-const movesTxt = document.querySelector('.moves');
+const movesTxt = document.querySelector('.moves-count');
 const hoursTxt = document.querySelector('.hours');
 const minsTxt = document.querySelector('.minutes');
 const secondsTxt = document.querySelector('.seconds');
