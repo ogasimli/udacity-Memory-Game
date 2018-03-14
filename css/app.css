@@ -1,15 +1,16 @@
 html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
     box-sizing: inherit;
 }
 
-html,
-body {
+html, body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -18,13 +19,15 @@ body {
 
 body {
     font-family: 'Coda', cursive;
-	color: #fff;
-	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 50s ease infinite;
-	-moz-animation: Gradient 50s ease infinite;
-	-o-animation: Gradient 50s ease infinite;
-	animation: Gradient 50s ease infinite;
+    color: #fff;
+    background: -webkit-linear-gradient(135deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background: -o-linear-gradient(135deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+    background-size: 400% 400%;
+    -webkit-animation: Gradient 50s ease infinite;
+    -moz-animation: Gradient 50s ease infinite;
+    -o-animation: Gradient 50s ease infinite;
+    animation: Gradient 50s ease infinite;
 }
 
 .container {
@@ -32,9 +35,18 @@ body {
     height: 100%;
     max-width: 670px;
     margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
@@ -43,20 +55,30 @@ body {
 }
 
 /*
-* Styles for the deck of cards
-*/
+ * Styles for the deck of cards
+ */
 
 .deck {
     width: 85%;
     height: 100%;
     min-height: 400px;
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding: 20px;
     border-radius: 10px;
+    -webkit-box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin: 0 0 1em;
 }
@@ -70,22 +92,55 @@ body {
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-    transform-style: preserve-3d;
-    transition:
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+            box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+
+    -webkit-transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.5s,
+    -webkit-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    -moz-transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.5s,
+    -moz-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    -o-transition:
     font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
     transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
     background 0.5s;
+
+    transition:
+    font-size 0.3s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    background 0.5s,
+    -webkit-transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .card.open .fab {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
 
 .card.open {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
     transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
@@ -117,19 +172,26 @@ body {
 }
 
 .card.bounceIn .fab {
+    -webkit-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -o-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
 }
 
 /*
-* Styles for the Score Panel
-*/
-
+ * Styles for the Score Panel
+ */
 .score-panel {
     text-align: left;
     width: 85%;
     padding: 0 35px;
     margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
@@ -141,7 +203,7 @@ body {
 .stars {
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;;
+    margin: 0 5px 0 0;
 }
 
 .star {
@@ -174,8 +236,8 @@ body {
 }
 
 /*
-* Styles for the modal
-*/
+ * Styles for the modal
+ */
 
 .modal {
     display: none;
@@ -194,6 +256,7 @@ body {
     margin: 20% auto;
     border-radius: 8px;
     background-color:#f4f4f4;
+    -webkit-box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
     -webkit-animation-name: ModalOpen;
     -moz-animation-name: ModalOpen;
@@ -206,6 +269,8 @@ body {
 }
 
 .modal-header {
+    background: -webkit-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
+    background: -o-linear-gradient(290deg, #02ccba 0%, #aa7ecd 100%);
     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
     padding:15px;
     color:#fff;
@@ -221,8 +286,7 @@ body {
     color:#fff;
 }
 
-.modal-close-btn:hover,
-.modal-close-btn:focus {
+.modal-close-btn:hover, .modal-close-btn:focus {
     color:#000;
     text-decoration: none;
     cursor: pointer;
@@ -248,12 +312,18 @@ body {
     border: none;
     border-radius: 8px;
     margin: auto;
+    -webkit-box-shadow: 7px 7px 30px #999999;
     box-shadow: 7px 7px 30px #999999;
-    transition: box-shadow 0.5s;
+    -webkit-transition: -webkit-box-shadow 0.5s;
+    -moz-transition: -webkit-box-shadow 0.5s;
+    -o-transition: -webkit-box-shadow 0.5s;
+    transition: -webkit-box-shadow 0.5s;
+    -o-transition: box-shadow 0.5s;
+    transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
-.modal-replay-btn:hover,
-.modal-replay-btn:focus {
+.modal-replay-btn:hover, .modal-replay-btn:focus {
+    -webkit-box-shadow: 3px 3px 8px #6F6F6F;
     box-shadow: 3px 3px 8px #6F6F6F;
     background-color: #9759E3;
     cursor: pointer;
@@ -277,7 +347,6 @@ body {
         height: 140px;
     }
 }
-
 
 @media screen and (max-width: 840px) {
     .card {
@@ -345,18 +414,19 @@ body {
 }
 
 /*
-* Backgroudn color animations
-*/
+ * Backgroudn color animations
+ */
+
 @-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 @-moz-keyframes Gradient {
@@ -384,15 +454,15 @@ body {
 }
 
 @keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 @-webkit-keyframes BounceIn {
@@ -478,32 +548,71 @@ body {
 
 @keyframes BounceIn {
     0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        -o-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
         transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
     }
     0% {
         opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
         transform: scale3d(.3, .3, .3);
     }
     20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
         transform: scale3d(1.1, 1.1, 1.1);
     }
     40% {
+        -webkit-transform: scale3d(.9, .9, .9);
         transform: scale3d(.9, .9, .9);
     }
     60% {
         opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
         transform: scale3d(1.03, 1.03, 1.03);
     }
     80% {
+        -webkit-transform: scale3d(.97, .97, .97);
         transform: scale3d(.97, .97, .97);
     }
     100% {
         opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
         transform: scale3d(1, 1, 1);
     }
 }
 
+@-webkit-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@-moz-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@-o-keyframes ModalOpen {
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
 @keyframes ModalOpen {
-    from{ opacity: 0}
-    to {opacity: 1}
+    from{
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
