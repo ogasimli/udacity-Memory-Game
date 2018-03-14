@@ -38,7 +38,7 @@ body {
     flex-direction: column;
 }
 
-h1 {
+.game-heading {
     font-weight: 500;
 }
 
@@ -61,7 +61,7 @@ h1 {
     margin: 0 0 1em;
 }
 
-.deck .card {
+.card {
     height: 110px;
     width: 110px;
     margin: 5px;
@@ -85,23 +85,23 @@ h1 {
     transform: rotateY(180deg);
 }
 
-.deck .card.open {
+.card.open {
     transform: rotateY(180deg);
     background: #02b3e4;
     cursor: default;
 }
 
-.deck .card.show {
+.card.show {
     font-size: 3em;
 }
 
-.deck .card.match {
+.card.match {
     cursor: default;
     background: #02ccba;
     font-size: 3em;
 }
 
-.deck .card.bounceIn {
+.card.bounceIn {
     -webkit-animation-name: BounceIn;
     -moz-animation-name: BounceIn;
     -o-animation-name: BounceIn;
@@ -116,7 +116,7 @@ h1 {
     animation-fill-mode: both;
 }
 
-.deck .card.bounceIn .fab {
+.card.bounceIn .fab {
     transform: rotateY(0deg);
 }
 
@@ -152,8 +152,8 @@ h1 {
 
 .empty-star {
     color: transparent;
-   -webkit-text-stroke-width: 1.5px;
-   -webkit-text-stroke-color: #ffcd00;
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: #ffcd00;
 }
 
 .moves {
@@ -173,6 +173,92 @@ h1 {
     padding-left: 5px;
 }
 
+/*
+* Styles for the modal
+*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index:1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    width: 70%;
+    margin: 20% auto;
+    border-radius: 8px;
+    background-color:#f4f4f4;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px 0 rgba(0,0,0,0.17);
+    -webkit-animation-name: ModalOpen;
+    -moz-animation-name: ModalOpen;
+    -o-animation-name: ModalOpen;
+    animation-name: ModalOpen;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.modal-header {
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding:15px;
+    color:#fff;
+}
+
+.modal-header h2 {
+    margin:0;
+}
+
+.modal-close-btn {
+    float: right;
+    font-size: 1.5em;
+    color:#fff;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    color:#000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-body {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.replay {
+    padding: 1em;
+}
+
+.modal-replay-btn {
+    display: block;
+    background-color: #8c4ed6;
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: auto;
+    box-shadow: 7px 7px 30px #999999;
+    transition: box-shadow 0.5s;
+}
+
+.modal-replay-btn:hover,
+.modal-replay-btn:focus {
+    box-shadow: 3px 3px 8px #6F6F6F;
+    background-color: #9759E3;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1230px) {
     .container {
         width: 60%;
@@ -186,7 +272,7 @@ h1 {
         height: initial;
     }
 
-    .deck .card {
+    .card {
         width: 140px;
         height: 140px;
     }
@@ -194,7 +280,7 @@ h1 {
 
 
 @media screen and (max-width: 840px) {
-    .deck .card {
+    .card {
         width: 120px;
         height: 120px;
     }
@@ -209,20 +295,20 @@ h1 {
         width: 90%;
     }
 
-    .deck .card {
+    .card {
         width: 110px;
         height: 110px;
     }
 }
 
- @media screen and (max-width: 650px) {
+@media screen and (max-width: 650px) {
     .deck {
         width: 95%;
     }
 }
 
 @media screen and (max-width: 550px) {
-    .deck .card {
+    .card {
         width: 90px;
         height: 90px;
     }
@@ -245,14 +331,14 @@ h1 {
 }
 
 @media screen and (max-width: 465px) {
-    .deck .card {
+    .card {
         width: 70px;
         height: 70px;
     }
 }
 
 @media screen and (max-width: 380px) {
-    .deck .card {
+    .card {
         width: 55px;
         height: 55px;
     }
@@ -415,4 +501,9 @@ h1 {
         opacity: 1;
         transform: scale3d(1, 1, 1);
     }
+}
+
+@keyframes ModalOpen {
+    from{ opacity: 0}
+    to {opacity: 1}
 }

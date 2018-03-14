@@ -1,11 +1,20 @@
 /* ----------- Variable declarations ----------- */
 
 const stars = document.querySelectorAll('.star');
-const movesTxt = document.querySelector('.moves-count');
-const hoursTxt = document.querySelector('.hours');
-const minsTxt = document.querySelector('.minutes');
-const secondsTxt = document.querySelector('.seconds');
+const movesCount = document.querySelector('.moves-count');
+const movesTxt = document.querySelector('.moves-text');
+const timerHours = document.querySelector('#timer .hours');
+const timerMins = document.querySelector('#timer .minutes');
+const timerSeconds = document.querySelector('#timer .seconds');
 const restartBtn = document.querySelector('#restart');
+const modal = document.querySelector('#simpleModal');
+const modalCloseBtn = document.querySelector('.modal-close-btn');
+const modalReplayBtn = document.querySelector('.modal-replay-btn');
+const modalMoves = document.querySelector('.modal-body .moves-count');
+const modalHours = document.querySelector('.modal-body .hours');
+const modalMins = document.querySelector('.modal-body .mins');
+const modalSeconds = document.querySelector('.modal-body .seconds');
+const modalRating = document.querySelector('.modal-body .rating');
 
 // Get deck
 const deck = document.querySelector('.deck');
@@ -31,6 +40,9 @@ let matches = 0;
 
 // Total seconds elapsed since game start
 let elapsedSeconds = 0;
+let hour = 0;
+let min = 0;
+let sec = 0;
 
 // Timer
 let timer = undefined;
@@ -45,6 +57,12 @@ deck.addEventListener('click', openCard);
 
 // Click event listener attached to restart button
 restartBtn.addEventListener('click', restartGame);
+
+// Click event listener attached to x button to close modal
+modalCloseBtn.addEventListener('click', closeModal);
+
+// Click event listener attached to modal's replay button to restart the game
+modalReplayBtn.addEventListener('click', restartGame);
 
 /* ----------- Main game logic ----------- */
 
@@ -83,11 +101,14 @@ function stopTimer() {
 
 function setTime() {
     let remainderSeconds = ++elapsedSeconds;
-    hoursTxt.textContent = stringifyTime(parseInt(remainderSeconds / 3600));
+    hour = parseInt(remainderSeconds / 3600);
+    timerHours.textContent = stringifyTime(hour);
     remainderSeconds = remainderSeconds % 3600;
-    minsTxt.textContent = stringifyTime(parseInt(remainderSeconds / 60));
+    min = parseInt(remainderSeconds / 60)
+    timerMins.textContent = stringifyTime(min);
     remainderSeconds = remainderSeconds % 60;
-    secondsTxt.textContent = stringifyTime(remainderSeconds);
+    sec = remainderSeconds;
+    timerSeconds.textContent = stringifyTime(sec);
 }
 
 // Function to remove 'open' & 'show' classes to card
@@ -128,7 +149,12 @@ function checkMatch() {
 
 function incrementMove() {
     moves++;
-    movesTxt.textContent = moves;
+    movesCount.textContent = moves;
+    if (moves === 1) {
+        movesTxt.textContent = ' Move';
+    } else {
+        movesTxt.textContent = ' Moves';
+    }
     determineRating();
 }
 
@@ -151,11 +177,13 @@ function incrementMatches() {
 
 function checkGameWin() {
     if (matches === 8) {
-        // Show modal
+        stopTimer();
+        openModal();
     }
 }
 
 function restartGame() {
+    closeModal();
     resetScore();
     resetDeck();
 }
@@ -168,16 +196,19 @@ function resetScore() {
 
     // Reset moves
     moves = 0;
-    movesTxt.textContent = moves;
+    movesCount.textContent = moves;
 
     // Reset matches
     matches = 0;
 
     // Reset time
     elapsedSeconds = 0;
-    hoursTxt.textContent = '00';
-    minsTxt.textContent = '00';
-    secondsTxt.textContent = '00';
+    hour = 0;
+    min = 0;
+    sec = 0;
+    timerHours.textContent = '00';
+    timerMins.textContent = '00';
+    timerSeconds.textContent = '00';
 
     // Stop timer
     stopTimer();
@@ -202,6 +233,19 @@ function resetDeck() {
         const symbol = `fa-${cardSymbols[index]}`;
         card.children[0].classList.add(symbol);
     });
+}
+
+function openModal() {
+    modalHours.textContent = hour > 0 ? `${hour} hours, ` : '';
+    modalMins.textContent = `${min} minutes, `;
+    modalSeconds.textContent = `${sec} seconds,`;
+    modalMoves.textContent = `${moves} moves`;
+    modalRating.textContent = rating;
+    modal.style.display = 'block';
+}
+
+function closeModal() {
+    modal.style.display = 'none';
 }
 
 /* ----------- Helper functions ----------- */
