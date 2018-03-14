@@ -21,19 +21,19 @@ Each turn:
 * The player then turns over a second card, trying to find the corresponding card with the same symbol.
 * If the cards match, both cards stay flipped over.
 * If the cards do not match, both cards are flipped face down.
-* The game ends once all cards have been correctly matched.!
+* The game ends once all cards have been correctly matched.
 
 1.Correct match
 
-[Correct match](./img/correct_move.png)
+![Correct match](./img/correct_move.png)
 
 2.Completed board
 
-[Completed Game](./img/complete.png)
+![Completed Game](./img/complete.png)
 
 3.Game over modal
 
-[Wrong match](./img/modal.png)
+![Wrong match](./img/modal.png)
 
 ## Technical
 
