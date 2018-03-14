@@ -101,6 +101,25 @@ h1 {
     font-size: 3em;
 }
 
+.deck .card.bounceIn {
+    -webkit-animation-name: BounceIn;
+    -moz-animation-name: BounceIn;
+    -o-animation-name: BounceIn;
+    animation-name: BounceIn;
+    -webkit-animation-duration: .75s;
+    -moz-animation-duration: .75s;
+    -o-animation-duration: .75s;
+    animation-duration: .75s;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.deck .card.bounceIn .fab {
+    transform: rotateY(0deg);
+}
+
 /*
 * Styles for the Score Panel
 */
@@ -251,4 +270,112 @@ h1 {
 	100% {
 		background-position: 0% 50%
 	}
+}
+
+@-webkit-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -webkit-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -webkit-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -webkit-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale3d(1, 1, 1);
+    }
+}
+
+@-moz-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -moz-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -moz-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -moz-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -moz-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -moz-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -moz-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -moz-transform: scale3d(1, 1, 1);
+    }
+}
+
+@-o-keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        -o-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        -o-transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        -o-transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        -o-transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        -o-transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        -o-transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        -o-transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes BounceIn {
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
 }
