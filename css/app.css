@@ -126,7 +126,8 @@ h1 {
 
 .score-panel {
     text-align: left;
-    width: 80%;
+    width: 85%;
+    padding: 0 25px;
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -135,13 +136,19 @@ h1 {
 .score-panel .stars {
     padding: 0;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 5px 0 0;;
+}
+
+.star {
+    list-style-type: none;
+    display: inline-block;
     color: #ffcd00;
 }
 
-.score-panel .stars li {
-    list-style-type: none;
-    display: inline-block;
+.empty-star {
+    color: transparent;
+   -webkit-text-stroke-width: 1.5px;
+   -webkit-text-stroke-color: #ffcd00;
 }
 
 .score-panel #restart {
