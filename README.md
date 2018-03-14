@@ -1,5 +1,9 @@
 # Memory Game Project
 
+Memory Game is a complete browser-based card matching game (also known as Concentration). But this isn’t just any memory game! It’s a shnazzy, well-designed, feature-packed memory game!
+
+You can access the memory game from [this link](https://htmlpreview.github.io/?https://github.com/ogasimli/udacity-Memory-Game/blob/master/index.html).
+
 ## Table of Contents
 
 * [Game Rules](#game-rules)
@@ -9,28 +13,35 @@
 
 ## Game Rules
 
-* There are eight pairs of cards on the game board.
-* Once you click on a card, it will flip & show you its icon.
-* When you click on another card & after that card flips:
-	* In case this card icon matches the one that was flipped earlier then both cards will turn blue.
-		![Correct match](./img/_correct_move.png)
-	* In case both cards don't match then both cards will be flipped on their back again.
-		![Wrong match](./img/_wrong_move.png)
-* Every card you flip will be considered as a move & will be incremented in the counter you see above the game board.
-	* After 17 moves you will loose one star, after 33, you'll loose two stars.
-* After you successfully manage to match all pairs, a success window will open showing how many moves you've done & how long have you spent.
+The game board consists of sixteen "cards" arranged in a grid. The deck is made up of eight different pairs of cards, each with different symbols on one side. The cards are arranged randomly on the grid with the symbol face down. The gameplay rules are very simple: flip over two hidden cards at a time to locate the ones that match!
 
-	![Completed Game](./img/_complete.png)
-	![Success Message](./img/_success.png)
+Each turn:
+
+* The player flips one card over to reveal its underlying symbol.
+* The player then turns over a second card, trying to find the corresponding card with the same symbol.
+* If the cards match, both cards stay flipped over.
+* If the cards do not match, both cards are flipped face down.
+* The game ends once all cards have been correctly matched.!
+
+1.Correct match
+
+[Correct match](./img/correct_move.png)
+
+2.Completed board
+
+[Completed Game](./img/complete.png)
+
+3.Game over modal
+
+[Wrong match](./img/modal.png)
 
 ## Technical
 
-* This project includes the following assets:
-	* **index.html** This is where the game html structure is located.
-		* You can access the memory game from: [https://alia-adel.github.io/fend-project-memory-game/](https://alia-adel.github.io/fend-project-memory-game/)
-	* **main.css** This is where the game board styling is located.
-	* **app.js** This is where all the board actions reside.
-* To follow the game workflow, please check `app.js`.
+This project consists of the following assets:
+
+* **index.html**  - contains the game's html structure.
+* **main.css** - contains the game's board styling.
+* **app.js** - contains all the board actions & logic.
 
 ## Credits
 
