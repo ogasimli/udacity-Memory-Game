@@ -237,7 +237,7 @@ function resetDeck() {
 
 function openModal() {
     modalHours.textContent = hour > 0 ? `${hour} hours, ` : '';
-    modalMins.textContent = `${min} minutes, `;
+    modalMins.textContent = min > 0 ? `${min} minutes, ` : '';
     modalSeconds.textContent = `${sec} seconds`;
     modalMoves.textContent = `${moves} moves`;
     modalRating.textContent = rating;
