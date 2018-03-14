@@ -25,15 +25,15 @@ Each turn:
 
 1.Correct match
 
-![Correct match](./img/correct_move.png)
+<img src="./img/correct_move.png" width="450">
 
 2.Completed board
 
-![Completed Game](./img/complete.png)
+<img src="./img/complete.png" width="450">
 
 3.Game over modal
 
-![Wrong match](./img/modal.png)
+<img src="./img/modal.png" width="450">
 
 ## Technical
 
