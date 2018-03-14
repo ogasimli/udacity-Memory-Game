@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>Matching Game</title>
-    <meta name="description" content="">
-    <!-- Add viewport -->
+    <meta name="description" content="Simple memory game">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
     <link rel="stylesheet" href="css/app.css">
@@ -19,21 +20,31 @@
         </header>
 
         <section class="score-panel">
-            <ul class="stars">
-                <li>
-                    <i class="fas fa-star"></i>
-                </li>
-                <li>
-                    <i class="fas fa-star"></i>
-                </li>
-                <li>
-                    <i class="fas fa-star"></i>
-                </li>
-            </ul>
+            <div id="score">
+                <ul class="stars">
+                    <li>
+                        <i class="fas fa-star"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star"></i>
+                    </li>
+                </ul>
 
-            <span class="moves">3</span> Moves
+                <span class="moves">3</span>
+                <span id="moves-text"> Moves</span>
+            </div>
 
-            <div class="restart">
+            <div id="timer">
+                <span id="timer-text">Timer: </span>
+                <label class="minutes">00</label>:
+                <label class="seconds">00</label>
+            </div>
+
+            <div id="restart">
+                <span id="restart-text">Restart: </span>
                 <i class="fas fa-redo-alt"></i>
             </div>
         </section>
