@@ -378,6 +378,10 @@ body {
 }
 
 @media screen and (max-width: 550px) {
+    .game-heading {
+        margin-bottom: 0;
+    }
+
     .card {
         width: 90px;
         height: 90px;
