@@ -159,13 +159,13 @@ function incrementMove() {
 }
 
 function determineRating() {
-    if (moves > 16 && moves <= 24) {
+    if (moves === 17) {
         rating--;
         stars[2].classList.add('empty-star');
-    } else if (moves > 25 && moves <= 32) {
+    } else if (moves === 26) {
         rating--;
         stars[1].classList.add('empty-star');
-    } else if (moves > 33) {
+    } else if (moves === 34) {
         rating--;
         stars[0].classList.add('empty-star');
     }
