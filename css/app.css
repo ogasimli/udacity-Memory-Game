@@ -398,6 +398,10 @@ body {
     #restart {
         margin: 10px auto;
     }
+
+    .card.show {
+        font-size: 2em;
+    }
 }
 
 @media screen and (max-width: 465px) {
